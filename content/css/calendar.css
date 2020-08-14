@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 14, 2020, 12:38:35 AM
+    Author     : Intu
+*/
+.day {
+    
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.day-name {
+    text-align: center;
+}
+
+.day-number {
+    height: 90px;
+}
+
+.week {
+    border: #eeeeee solid 1px;
+    display: flex;
+}
+
+
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  border-bottom: #dadce0 solid 1px;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.flex-container:first-child {
+    border-top: #dadce0 solid 1px;
+}
+
+.flex-item {
+  border-right: #dadce0 solid 1px;
+  width: 200px;
+  height: 150px;
+  line-height: 150px;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.flex-item:first-child {
+    border-left: #dadce0 solid 1px;
+}
+
