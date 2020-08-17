@@ -14,11 +14,13 @@
         <div>
             <header>Here will go the header</header>
             <nav>TODO CREATE NAVBAR</nav>
+            <div>{$firstDay}</div>
             <main>
-                {include file="calendar_1.tpl"}
-                
+                {include file="calendar.tpl"}
+                {include file="calendarTest.tpl"}
                
                 
+          
                 {$month}
                 {$daysInMonth}
                 {$year}

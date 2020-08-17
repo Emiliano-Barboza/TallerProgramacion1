@@ -28,7 +28,7 @@ and open the template in the editor.
 }
 
 
-.flex-container {
+ul.flex-container {
   /* We first create a flex layout context */
   display: flex;
   
@@ -48,11 +48,11 @@ and open the template in the editor.
   list-style: none;
 }
 
-.flex-container:first-child {
+ul.flex-container:first-child {
     border-top: #dadce0 solid 1px;
 }
 
-.flex-item {
+li.flex-item {
   border-right: #dadce0 solid 1px;
   width: 200px;
   height: 150px;
@@ -62,7 +62,7 @@ and open the template in the editor.
   text-align: center;
 }
 
-.flex-item:first-child {
+li.flex-item:first-child {
     border-left: #dadce0 solid 1px;
 }
 

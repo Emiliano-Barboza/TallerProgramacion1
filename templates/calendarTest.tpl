@@ -2,15 +2,11 @@
 
 <dir class="calendar">
 {foreach $calendar.weeks as $week}
-    <div class="week">
+    <ul class="flex-container">
     {foreach $week as $day key=index}
-        <dir>
-            <dir>{$day.title}</dir>
-            {if isset($day.data) }
-                <dir>Something here</dir>
-            {/if}
-        </dir>
+        <li class="flex-item">{$day.title}</li>
     {/foreach}
-    </div>
+    </ul>
 {/foreach}
 </dir>
+
