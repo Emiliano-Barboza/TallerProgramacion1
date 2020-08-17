@@ -1,15 +1,7 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- * 
- * 
- */
 include_once '../config/configuracion.php';
 include_once("../config/config_SMARTY.php");
-include_once("../components/Calendar.php");
 
 $smarty = new Smarty();
 
@@ -23,5 +15,7 @@ $year = date("Y");//2020; // TODO get dynamic
 $calendar = new Calendar();
 $calendarData = $calendar->getCalendar($month, $year);
 
+$smarty->assign('month', $month);
+$smarty->assign('year', $year);
 $smarty->assign('calendar', $calendarData);
 $smarty->display('dashboard.tpl');

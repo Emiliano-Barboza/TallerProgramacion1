@@ -7,24 +7,19 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          
     </head>
 	
     <body>
         <div>
-            <header>Here will go the header</header>
+            <header>
+                <div>
+                    <a href="/driverAcademy/index.php" class="logo">Academia de choferes</a>
+                    <div class="session-menu">Inicio sesión</div>
+                </div>
+            </header>
             <nav>TODO CREATE NAVBAR</nav>
-            <div>{$firstDay}</div>
             <main>
                 {include file="calendar.tpl"}
-                {include file="calendarTest.tpl"}
-               
-                
-          
-                {$month}
-                {$daysInMonth}
-                {$year}
-                {$firstMonthDay}
                 
             </main>
         </div>

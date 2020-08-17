@@ -1,12 +1,46 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Aug 14, 2020, 12:38:35 AM
-    Author     : Intu
-*/
+
+/* =============  Generic Styles  ============= */
+body {
+   margin: 0;
+}
+header, header > div {
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 16px;
+    height: 48px;
+    line-height: 24px;
+}
+header > div {
+    padding: 0 20px;
+}
+.logo {
+    background-image: url('/icons/driving_school.svg');
+    background-size: contain;
+    color: #fff;
+    font-size: 20px;
+    line-height: 30px;
+    text-decoration: none;
+}
+
+.session-menu {
+    float: right;
+}
+
+/* =============  Generic Styles End  ============= */
+
+/* =============  Calendar  ============= */
+.course-open {
+    background-color: #66bb6a;
+}
+
+.course-warning {
+    background-color: #ffc107;
+}
+
+.course-full {
+    background-color: #f44336;
+}
+
 .day {
     
     flex-grow: 1;
@@ -22,22 +56,28 @@ and open the template in the editor.
     height: 90px;
 }
 
+.month-navigation {
+    font-size: 16px;
+    height: 48px;
+    line-height: 24px;
+}
+
+.month-navigation > span {
+    margin-left: 10px;
+}
+
 .week {
     border: #eeeeee solid 1px;
     display: flex;
 }
 
 
-ul.flex-container {
+
+/* =============  Calendar End  ============= */
+
+.flex-container {
   /* We first create a flex layout context */
   display: flex;
-  
-  /* Then we define the flow direction 
-     and if we allow the items to wrap 
-   * Remember this is the same as:
-   * flex-direction: row;
-   * flex-wrap: wrap;
-   */
   flex-flow: row wrap;
   
   /* Then we define how is distributed the remaining space */
@@ -48,11 +88,11 @@ ul.flex-container {
   list-style: none;
 }
 
-ul.flex-container:first-child {
+.flex-container:first-child {
     border-top: #dadce0 solid 1px;
 }
 
-li.flex-item {
+.flex-item {
   border-right: #dadce0 solid 1px;
   width: 200px;
   height: 150px;
@@ -62,7 +102,7 @@ li.flex-item {
   text-align: center;
 }
 
-li.flex-item:first-child {
+.flex-item:first-child {
     border-left: #dadce0 solid 1px;
 }
 

@@ -19,39 +19,68 @@ class Calendar {
             'title' => $title,
             'data'  => $data);
     }
-
-    public function getCalendarWeeks($month = 1, $year = 2020){
-        $weeks = array();
-        $weeks[] = array_map(array($this, 'convertToDayCell'), $this->daysOfWeek);
-        
+    
+    private function getDaysSettings ($month, $year){
+        $daysSettings = array(
+            'dayNumber' => 1,
+            'maxDay'    => 0
+        );
         $firstDayOfWeek = date("l", strtotime("first day of this month"));
         $firstDayOfWeekNumber = $this->getDayOfWeekNumber($firstDayOfWeek);
         $totalCurrentMonthDays = cal_days_in_month(CAL_GREGORIAN, $month, $year);
         $totalPreviousMonthDays = cal_days_in_month(CAL_GREGORIAN, $month - 1, $year); //TODO Check borders
 
-        $dayNumber = $totalPreviousMonthDays - $firstDayOfWeekNumber + 1; // This will be same total month days if day starts on Monday
-        $maxDay = 0;
+        $daysSettings['dayNumber'] = $totalPreviousMonthDays - $firstDayOfWeekNumber + 1; // This will be same total month days if day starts on Monday
+        $daysSettings['maxDay'] = 0;
 
-        if($dayNumber == $totalPreviousMonthDays){
-            $maxDay = $totalCurrentMonthDays;
-            $dayNumber = 1;
+        if($daysSettings['dayNumber'] == $totalPreviousMonthDays){
+            $daysSettings['maxDay'] = $totalCurrentMonthDays;
+            $daysSettings['dayNumber'] = 1;
         } else{
-            $maxDay = $totalPreviousMonthDays;
+            $daysSettings['maxDay'] = $totalPreviousMonthDays;
         }
+        
+        return $daysSettings;
+    }
 
+    private function getCalendarWeeks($month = 1, $year = 2020){
+        $weeks = array();
+        $weeks[] = array_map(array($this, 'convertToDayCell'), $this->daysOfWeek);
+        $daysSettings = $this->getDaysSettings($month, $year);
+        
         for ($weekNumber = 1; $weekNumber < $this->amountOfWeeks; $weekNumber++) {
             $week = array();
 
-            for ($cell = 0; $cell < $this->amountWeekDays; $cell++) {
-                $week[] = $this->convertToDayCell($dayNumber, array());
-                $dayNumber++;
-                if ($dayNumber > $maxDay) {
-                    $dayNumber = 1;
+            for ($day = 0; $day < $this->amountWeekDays; $day++) {
+                // TODO test data
+                $courses = array(
+                    'amountEnrolled' => 15,
+                    'amountWithLicense' => 7,
+                    'amountOfCourses' => 35,
+                    'status' => 'open'
+                );
+                
+                $week[] = $this->convertToDayCell($daysSettings['dayNumber'], $courses);
+                $daysSettings['dayNumber']++;
+                if ($daysSettings['dayNumber'] > $daysSettings['maxDay']) {
+                    $daysSettings['dayNumber'] = 1;
                 }
             }
             $weeks[] = $week;
         }
 
         return $weeks;
+    }
+    
+    public function getCalendar($month = 1, $year = 2020){
+        $weeks = $this->getCalendarWeeks($month, $year);
+        $calendar = array(
+            'currentMonth' => date("F", mktime(0, 0, 0, $month, 10)),
+            'previousMonth' => date("F", mktime(0, 0, 0, $month - 1, 10)),
+            'nextMonth' => date("F", mktime(0, 0, 0, $month + 1, 10)),
+            'currentYear'  => $year, 
+            'weeks'        => $weeks
+        );
+        return $calendar;
     }
 }
