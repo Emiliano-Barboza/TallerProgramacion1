@@ -12,10 +12,10 @@ $password = $safePost['password'];// TODO: use md5 here?
 $authenticator = new Authenticator();
 $login = $authenticator->checkLogin($user, $password);
 
-if(isset($login)){
+if(!is_string($login)){
     session_start();
     $_SESSION['user'] = $login;
     header('location:./index.php');
 } else {
-    header('location:./login.php?error=usuario inválido.');
+    header('location:./login.php?error=' . $login);
 }
