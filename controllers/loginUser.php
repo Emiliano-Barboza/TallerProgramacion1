@@ -17,5 +17,5 @@ if(isset($login)){
     $_SESSION['user'] = $login;
     header('location:./index.php');
 } else {
-    header('location:./login.php?error=usuario inválido');
+    header('location:./login.php?error=usuario inválido.');
 }

@@ -17,6 +17,9 @@
                 <dir>Contidad inscriptos: {$day.data.amountEnrolled}</dir>
                 <dir>Contidad con libreta: {$day.data.amountWithLicense}</dir>
                 <dir>Cupos disponibles: {$day.data.amountOfCourses - $day.data.amountEnrolled}</dir>
+                    {if isset($user) && ($day.data.amountOfCourses - $day.data.amountEnrolled > 0) }
+                    <a>Reservar clase</a>
+                    {/if}
                 {/if}
             </dir>
         {/foreach}

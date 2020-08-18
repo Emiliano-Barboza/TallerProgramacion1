@@ -17,7 +17,7 @@
         {/if}
         <p>
             <div>Quieres registrarte?</div>
-            <a href="register">Registrarse</a>
+            <a href="register.php">Registrarse</a>
         </p>
     </form>
 </div>

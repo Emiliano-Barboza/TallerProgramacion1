@@ -10,9 +10,17 @@ $smarty->compile_dir = COMPILER_DIR;
 $smarty->config_dir = CONFIG_DIR;
 $smarty->cache_dir = CACHE_DIR;
 
-if(isset($_GET['error'])) {
-    $smarty->assign('error', $_GET['error']);
+session_start();
+
+if(isset($_SESSION['user'])){
+    header('location:./index.php');
+} else {
+    if(isset($_GET['error'])) {
+        $smarty->assign('error', $_GET['error']);
+    }   
+
+    $smarty->assign('pageTitle', 'Página de inicio');
+    $smarty->display('login.tpl');
 }
 
-$smarty->assign('pageTitle', 'Página de inicio');
-$smarty->display('login.tpl');
+
