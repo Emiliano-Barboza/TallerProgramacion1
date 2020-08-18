@@ -11,7 +11,7 @@
                       <a href="#">{$user.full_name}</a>
                       <ul class="sub-menu">
                         {if isset($user.is_admin) }
-                        <li><a href="#">Alta instructor</a></li>
+                        <li><a href="registerStaff.php">Alta instructor</a></li>
                         <li><a href="#">Aprobación clientes</a></li>
                         <li><a href="#">Confirmación libretas</a></li>
                         <li><a href="#">Instructores</a></li>

@@ -1,9 +1,11 @@
 <?php
+define('STRINGCONNBD', 'mysql:dbname=obligatorio;host=localhost');
+define('DB_USER', 'root');
+define('DB_USER_PASSWORD', 'root');
+define('DB_NAME', 'obligatorio');
+define('ENGINE', 'mysql');
+define('SERVER_ADDRESS', 'localhost');
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-//const WEEKDAYS = array('Monday', 'Tuesday', 'Wednesdy', 'Thursday', 'Friday', 'Saturday', 'Sunday');
+define('ADMIN_USER', 1);
+define('UNCONFIRMED_USER', 2);
+define('CLIENT_USER', 3);
