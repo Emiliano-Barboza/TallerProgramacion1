@@ -1,13 +1,13 @@
 <?php
 require_once('../dataAccess/Authenticator.php');
 
-$safePost = filter_input_array(INPUT_POST, [
+$data = filter_input_array(INPUT_POST, [
     "user" => FILTER_SANITIZE_EMAIL,
     "password" => FILTER_SANITIZE_STRING
 ]);
 
-$user = $safePost['user'];
-$password = $safePost['password'];// TODO: use md5 here?
+$user = $data['user'];
+$password = $data['password'];
 
 $authenticator = new Authenticator();
 $login = $authenticator->checkLogin($user, $password);

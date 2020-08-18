@@ -10,17 +10,21 @@ $smarty->compile_dir = COMPILER_DIR;
 $smarty->config_dir = CONFIG_DIR;
 $smarty->cache_dir = CACHE_DIR;
 
-session_start();
-
-if(isset($_SESSION['user'])){
-    header('location:./index.php');
-} else {
+function showLogin(){
     if(isset($_GET['error'])) {
         $smarty->assign('error', $_GET['error']);
     }   
 
     $smarty->assign('pageTitle', 'Página de inicio');
     $smarty->display('login.tpl');
+}
+
+session_start();
+
+if(isset($_SESSION['user'])){
+    header('location:./index.php');
+} else {
+    showLogin();
 }
 
 

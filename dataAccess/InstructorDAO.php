@@ -27,7 +27,6 @@ class InstructorDAO {
     }
     
     public function registerInstructor($data) {
-        $response = null;
         sort($this->tablePublicFields);
         ksort($data);
         $values = dbUtils::convertArrayToQueryValues(array_values($data));
