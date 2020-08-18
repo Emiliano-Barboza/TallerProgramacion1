@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {if isset($scriptsSource) }
             {foreach $scriptsSource as $source}
-                <script src="{$source}"></script> 
+                <script src="{$source}" type="module"></script> 
             {/foreach}
         {/if}
            

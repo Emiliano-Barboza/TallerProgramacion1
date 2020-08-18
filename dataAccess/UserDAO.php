@@ -13,6 +13,30 @@ class UserDAO {
         $this->connection = new ConexionBD(ENGINE, SERVER_ADDRESS, DB_NAME, DB_USER, DB_USER_PASSWORD);
     }
     
+    public function confirmClient($id) {
+        $query = "UPDATE " . $this->table . " SET usuario_tipo_id = " . CLIENT_USER . " WHERE usuario_id = " . $id . ";";
+        $this->connection->conectar();
+        $response = $this->connection->consulta($query);
+       
+        if($response) {
+            $response = $this->connection->siguienteRegistro();
+        }
+        $this->connection->desconectar();
+        return $response;
+    }
+    
+    public function getUnconfirmedUsers() {
+        $query = "SELECT * FROM " . $this->table . " WHERE `usuario_tipo_id` =" . UNCONFIRMED_USER . " LIMIT 0 , 30";
+        
+        $this->connection->conectar();
+        $response = $this->connection->consulta($query);
+        if($response) {
+            $response = $this->connection->restantesRegistros();
+        }
+        $this->connection->desconectar();
+        return $response;
+    }
+    
     public function getUser($email) {
         $query = "SELECT * FROM " . $this->table . " WHERE `email` LIKE '%" . $email . "%' LIMIT 0 , 30";
         
