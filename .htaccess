@@ -4,6 +4,7 @@ RewriteEngine on
 RewriteCond %{REQUEST_URI} !\.(?:css|js)$ [NC]
 RewriteRule ^index.php              controllers/dashboard.php
 RewriteRule ^login.php              controllers/login.php
+RewriteRule ^logout.php              controllers/logout.php
 RewriteRule ^loginUser.php          controllers/loginUser.php
 RewriteRule ^register.php           controllers/register.php
 RewriteRule ^registerUser.php       controllers/registerUser.php

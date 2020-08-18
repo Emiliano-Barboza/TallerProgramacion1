@@ -12,11 +12,13 @@ class Authenticator {
     public function checkLogin($user, $password)  {
         $response = null;
         $user = $this->userDAO->getUser($user);
+        
         if($user) {
             if(md5($password) === $user['password']) {
                 $response = array(
                     'email' => $user['email'],
-                    'full_name' => $user['nombre'] . ' ' . $user['apellido']
+                    'full_name' => $user['nombre'],
+                    'is_admin' => $user['usuario_tipo_id'] == 1
                 );
             }
         }

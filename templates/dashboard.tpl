@@ -5,16 +5,22 @@
         <div>
             <a href="/driverAcademy/index.php" class="logo">Academia de choferes</a>
             {if isset($user) }
-                <div class="dropdown">
-                    <button class="dropbtn">Dropdown
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
-                    </div>
-                </div>
+            <nav>
+                <ul class="nav">
+                  <li>
+                      <a href="#">{$user.full_name}</a>
+                      <ul class="sub-menu">
+                        {if isset($user.is_admin) }
+                        <li><a href="#">Alta instructor</a></li>
+                        <li><a href="#">Aprobación clientes</a></li>
+                        <li><a href="#">Confirmación libretas</a></li>
+                        <li><a href="#">Instructores</a></li>
+                        {/if}
+                        <li><a href="/driverAcademy/logout.php">Cerrar sesióm</a></li>
+                      </ul>
+                  </li>
+                </ul>
+            </nav>
             {else}
                 <a href="/driverAcademy/login.php" class="session-menu">Inicio sesión</a>
             {/if}
