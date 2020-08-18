@@ -13,7 +13,7 @@
                         {if isset($user.is_admin) }
                         <li><a href="registerStaff.php">Alta instructor</a></li>
                         <li><a href="confirmClients.php">Aprobación clientes</a></li>
-                        <li><a href="#">Confirmación libretas</a></li>
+                        <li><a href="confirmLicenses.php">Confirmación libretas</a></li>
                         <li><a href="#">Instructores</a></li>
                         {/if}
                         <li><a href="/driverAcademy/logout.php">Cerrar sesióm</a></li>

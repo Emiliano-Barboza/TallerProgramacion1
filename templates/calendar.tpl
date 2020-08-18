@@ -12,12 +12,12 @@
         <div class="week">
         {foreach $week as $day key=index}
             <dir>
-                <dir class="{if isset($day.data)}course-{$day.data.status}{/if}">{$day.title}</dir>
+                <dir class="{if isset($day.data)}booking-{$day.data.status}{/if}">{$day.title}</dir>
                 {if isset($day.data) }
                 <dir>Contidad inscriptos: {$day.data.amountEnrolled}</dir>
                 <dir>Contidad con libreta: {$day.data.amountWithLicense}</dir>
-                <dir>Cupos disponibles: {$day.data.amountOfCourses - $day.data.amountEnrolled}</dir>
-                    {if isset($user) && ($day.data.amountOfCourses - $day.data.amountEnrolled > 0) }
+                <dir>Cupos disponibles: {$day.data.amountOfBookings - $day.data.amountEnrolled}</dir>
+                    {if isset($user) && ($day.data.amountOfBookings - $day.data.amountEnrolled > 0) }
                     <a>Reservar clase</a>
                     {/if}
                 {/if}

@@ -49,6 +49,18 @@ class UserDAO {
         return $response;
     }
     
+    public function getUsers($users) {
+        $query = "SELECT * FROM " . $this->table . " WHERE `usuario_id` IN (" . implode(", ", $users) . ") LIMIT 0 , 30";
+        
+        $this->connection->conectar();
+        $response = $this->connection->consulta($query);
+        if($response) {
+            $response = $this->connection->restantesRegistros();
+        }
+        $this->connection->desconectar();
+        return $response;
+    }
+    
     public function registerUser($data) {
         $response = null;
         $user = $this->getUser($data['email']);

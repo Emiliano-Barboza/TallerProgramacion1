@@ -53,14 +53,14 @@ class Calendar {
 
             for ($day = 0; $day < $this->amountWeekDays; $day++) {
                 // TODO test data
-                $courses = array(
+                $bookings = array(
                     'amountEnrolled' => 15,
                     'amountWithLicense' => 7,
-                    'amountOfCourses' => 35,
+                    'amountOfBookings' => 35,
                     'status' => 'open'
                 );
                 
-                $week[] = $this->convertToDayCell($daysSettings['dayNumber'], $courses);
+                $week[] = $this->convertToDayCell($daysSettings['dayNumber'], $bookings);
                 $daysSettings['dayNumber']++;
                 if ($daysSettings['dayNumber'] > $daysSettings['maxDay']) {
                     $daysSettings['dayNumber'] = 1;

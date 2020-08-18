@@ -9,3 +9,5 @@ define('SERVER_ADDRESS', 'localhost');
 define('ADMIN_USER', 1);
 define('UNCONFIRMED_USER', 2);
 define('CLIENT_USER', 3);
+
+define('MIN_BOOKINGS_TO_ALLOW_LICENSE', 15);
