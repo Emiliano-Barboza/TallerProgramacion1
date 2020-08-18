@@ -1,3 +1,4 @@
+{* Smarty *}
 <link href="content/css/calendar.css" rel="stylesheet" type="text/css"/>
 
 <dir class="calendar">

@@ -14,7 +14,7 @@ header > div {
     padding: 0 20px;
 }
 .logo {
-    background-image: url('/icons/driving_school.svg');
+    background-image: url('driverAcademt/../icons/driving_school.svg');
     background-size: contain;
     color: #fff;
     font-size: 20px;

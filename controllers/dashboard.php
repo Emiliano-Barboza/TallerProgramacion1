@@ -23,5 +23,6 @@ $year = date("Y");//2020; // TODO get dynamic
 $calendar = new Calendar();
 $calendarData = $calendar->getCalendar($month, $year);
 
+$smarty->assign('pageTitle', 'Pagina principal');
 $smarty->assign('calendar', $calendarData);
 $smarty->display('dashboard.tpl');
