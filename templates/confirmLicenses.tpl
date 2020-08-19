@@ -1,16 +1,24 @@
 {* Smarty *}
 {include file="basePageBegin.tpl"}
+{include file="wrapperContainerBegin.tpl"}
 
-<dir>
+<div class="list-container">
+    <div class="list-container-panel-header">
+        <div>Confirm licenses</div>
+    </div>
+    <div class="list-container-panel">
+    {foreach $users as $user key=index}
+        <div class="inner">
+            <span>{$user.nombre} {$user.apellido}</span>
+            <button id="{$user.usuario_id}" class="confirm">Confirm</button>
+        </div>
+    {/foreach}  
+    </div>
+    <div class="list-container-panel-footer">
     {if empty($users)}
         <div>There are no licenses to confirm by this time.</div>
     {/if}
-    {foreach $users as $user key=index}
-        <dir>
-            <span>{$user.nombre} {$user.apellido}</span>
-            <button id="{$user.usuario_id}" class="confirm">Confirm</button>
-        </dir>
-    {/foreach}
-</dir>
+    </div>
+</div>
+{include file="wrapperContainerEnd.tpl"}
 
-{include file="basePageEnd.tpl"}
