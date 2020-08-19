@@ -15,6 +15,7 @@
                 {if isset($day.data) }
                 <dir>Contidad inscriptos: {$day.data.inscriptos}</dir>
                 <dir>Contidad con libreta: {$day.data.licencias}</dir>
+                <dir>Costo: {$day.data.costo}</dir>
                 <dir>Cupos disponibles: {$day.data.cupos - $day.data.inscriptos}</dir>
                     {if isset($user) && !$user.is_admin && ($day.data.cupos - $day.data.inscriptos > 0) }
                     <a href="booking.php?date={$day.data.fecha}">Reservar clase</a>

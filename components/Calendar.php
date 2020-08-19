@@ -76,18 +76,24 @@ class Calendar {
             for ($day = 0; $day < $this->amountWeekDays; $day++) {
                 $bookingDate = null;
                 $date = $year . '-' . sprintf('%02d', $month) . '-' . sprintf('%02d', $daysSettings['dayNumber']);
-                $foundKey = $this->searchForId('fecha', $date, $dataSource);
-                if(isset($foundKey)) {
-                    $bookingDate = $dataSource[$foundKey];
-                } else {
-                    $bookingDate = array(
-                        'inscriptos' => 0,
-                        'licencias'  => 0,
-                        'fecha'      => $date
-                    );
+                
+                if ($day < REST_DAYS) {
+                    $foundKey = $this->searchForId('fecha', $date, $dataSource);
+                    if(isset($foundKey)) {
+                        $bookingDate = $dataSource[$foundKey];
+                    } else {
+                        $bookingDate = array(
+                            'inscriptos' => 0,
+                            'licencias'  => 0,
+                            'fecha'      => $date
+                        );
+                    }
+                    $bookingDate['cupos']  = sizeof(range(BOOKING_FIRST_HOUR, BOOKING_LAST_HOUR, BOOKING_SESSION_HOUR));
+                    $bookingDate['status'] = $this->getBookingStatus($bookingDate['cupos'], $bookingDate['inscriptos']);
+                    $bookingDate['costo'] = (BOOKING_COST * $weekNumber) - $day; // Fake different costs per week
                 }
-                $bookingDate['cupos']  = sizeof(range(BOOKING_FIRST_HOUR, BOOKING_LAST_HOUR, BOOKING_SESSION_HOUR));
-                $bookingDate['status'] = $this->getBookingStatus($bookingDate['cupos'], $bookingDate['inscriptos']);
+                
+                
                 
                 $week[] = $this->convertToDayCell($daysSettings['dayNumber'], $bookingDate);
                 $daysSettings['dayNumber']++;

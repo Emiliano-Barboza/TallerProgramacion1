@@ -16,4 +16,8 @@ define('BOOKING_FIRST_HOUR', 7);
 define('BOOKING_LAST_HOUR', 21);
 define('BOOKING_SESSION_HOUR', 1);
 
+define('REST_DAYS', 5);
+
+define('BOOKING_COST', 50);
+
 
