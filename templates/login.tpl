@@ -1,9 +1,7 @@
 {* Smarty *}
 {include file="rootPageBegin.tpl"}
 
-<div class="wrapper">
-    <div class="wrapper-container">
-        <div class="wrapper-form-container">
+{include file="wrapperContainerBegin.tpl"}
             <div class="form-container-panel-header">
                 <a href="/driverAcademy/index.php" class="logo-form">
                     <img src="content/icons/driving-school.svg"/>
@@ -22,7 +20,7 @@
                         <input type="submit" value="Login">
                     </p>
                     {if isset($error) }
-                    <p><b>{$error}</b></p>   
+                        <p class="message-error"><b>{$error}</b></p>   
                     {/if}
                 </form>    
             </div>
@@ -32,9 +30,6 @@
                     <a href="register.php">Sign up</a>
                 </p>
             </div>
-        </div>
-    </div>
-</div>
-
+{include file="wrapperContainerEnd.tpl"}
 
 {include file="rootPageEnd.tpl"}

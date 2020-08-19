@@ -45,6 +45,10 @@ header > div {
     height: 250px;
 }
 
+.message-error {
+    color: red;
+}
+
 .session-menu {
     float: right;
     color: #fff;
@@ -62,7 +66,16 @@ header > div {
     overflow-x: hidden;
 }
 
-.wrapper-container, .wrapper-form-container {
+.wrapper-container {
+    text-align: center;
+    padding-top: 50px; 
+}
+
+
+
+@media (min-width: 768px) {
+  
+  .wrapper-container, .wrapper-form-container {
     padding-top: 50px; 
     text-align: center;
     margin: 0 auto;
@@ -85,15 +98,12 @@ header > div {
 .form-container-panel-footer {
     
 }
+  
+}
 
 
 /* =============  Generic Styles End  ============= */
 
-/* =============  Login   ============= */
-
-
-
-/* =============  Login End  ============= */
 
 /* =============  Menu nav  ============= */
 nav {    
