@@ -1,4 +1,7 @@
 /* =============  Generic Styles  ============= */
+html, body {
+    height: 100%;
+}
 body {
    margin: 0;
 }
@@ -32,6 +35,16 @@ header > div {
     margin-left: 50px;
 }
 
+.logo-form {
+    color: #1a73e8;
+    font-size: 40px;
+    text-decoration: none;
+}
+
+.logo-form img {
+    height: 250px;
+}
+
 .session-menu {
     float: right;
     color: #fff;
@@ -40,6 +53,47 @@ header > div {
     letter-spacing: 2px;
     position: relative;
 }
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+.wrapper-container, .wrapper-form-container {
+    padding-top: 50px; 
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.form-container-panel {
+    margin: 50px 0;
+}
+
+.form-container-panel input {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.form-container-panel input[type="submit"] {
+    width: 82%;
+}
+
+.form-container-panel-footer {
+    
+}
+
+
+/* =============  Generic Styles End  ============= */
+
+/* =============  Login   ============= */
+
+
+
+/* =============  Login End  ============= */
 
 /* =============  Menu nav  ============= */
 nav {    
@@ -135,4 +189,3 @@ nav ul {
   right: 10px; 
 }
 /* =============  Menu nav Ends       ============= */
-/* =============  Generic Styles End  ============= */
