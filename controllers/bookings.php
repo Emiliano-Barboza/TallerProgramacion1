@@ -22,7 +22,6 @@ function getBookings() {
         $smarty->assign('bookings', $bookings);
     }
 
-    $smarty->assign('pageTitle', 'Listado de clases');
     $smarty->assign('instructors', $instructors);
     $smarty->assign('cssSources', $cssSources);
     $smarty->assign('pageTitle', 'Listado de clases');

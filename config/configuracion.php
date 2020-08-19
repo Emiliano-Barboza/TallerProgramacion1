@@ -11,3 +11,9 @@ define('UNCONFIRMED_USER', 2);
 define('CLIENT_USER', 3);
 
 define('MIN_BOOKINGS_TO_ALLOW_LICENSE', 15);
+
+define('BOOKING_FIRST_HOUR', 7);
+define('BOOKING_LAST_HOUR', 21);
+define('BOOKING_SESSION_HOUR', 1);
+
+

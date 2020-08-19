@@ -54,10 +54,11 @@ class Calendar {
             for ($day = 0; $day < $this->amountWeekDays; $day++) {
                 // TODO test data
                 $bookings = array(
-                    'amountEnrolled' => 15,
+                    'amountEnrolled'    => 15,
                     'amountWithLicense' => 7,
-                    'amountOfBookings' => 35,
-                    'status' => 'open'
+                    'amountOfBookings'  => 35,
+                    'status'            => 'open',
+                    'date'              => $year . '-' . $month . '-' . $daysSettings['dayNumber']
                 );
                 
                 $week[] = $this->convertToDayCell($daysSettings['dayNumber'], $bookings);

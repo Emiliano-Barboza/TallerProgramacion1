@@ -17,9 +17,10 @@ class Authenticator {
         if($user && md5($password) === $user['password']) {
             if($user['usuario_tipo_id'] != UNCONFIRMED_USER) {
                 $response = array(
-                    'email' => $user['email'],
+                    'email'     => $user['email'],
                     'full_name' => $user['nombre'],
-                    'is_admin' => $user['usuario_tipo_id'] == ADMIN_USER
+                    'is_admin'  => $user['usuario_tipo_id'] == ADMIN_USER,
+                    'user_id'   => $user['usuario_id']
                 );
             } else {
                 $response = 'Usuario no confirmado.';

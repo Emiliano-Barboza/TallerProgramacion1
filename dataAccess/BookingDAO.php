@@ -7,11 +7,30 @@ class BookingDAO {
     private $connection = null;
     private $table = 'reservas';
     private $userTable = 'usuarios';
-    private $tablePublicFields = array('email', 'password', 'nombre', 'apellido',
-        'ci', 'fecha_nacimiento', 'direccion', 'usuario_tipo_id');
+    private $tablePublicFields = array('fecha', 'hora', 'instructor_id', 'usuario_id');
     
     public function __construct() {
         $this->connection = new ConexionBD(ENGINE, SERVER_ADDRESS, DB_NAME, DB_USER, DB_USER_PASSWORD);
+    }
+    
+    public function confirmBooking($bookingData){
+        sort($this->tablePublicFields);
+        ksort($bookingData);
+        $values = dbUtils::convertArrayToQueryValues(array_values($bookingData));
+        $query = "INSERT INTO " . $this->table . " (" . implode(", ", $this->tablePublicFields) . ") " .
+                "VALUES (" . $values  . ")";
+        
+        var_dump($query);
+        
+        $this->connection->conectar();
+        $response = $this->connection->consulta($query);
+        
+        if($response) {
+            $response = $this->connection->ultimoIdInsert();
+        }
+        $this->connection->desconectar();
+        
+        return $response;
     }
     
     public function getLicensesToConfirm() {
@@ -35,10 +54,9 @@ class BookingDAO {
                 " as r, " . $this->userTable . " as u WHERE r.usuario_id = u.usuario_id && `fecha` = '" . 
                 $date . "' ORDER BY `hora`, `nombre`, `direccion`" ;
         
-        if(!isset($instructorId)) {
+        if(isset($instructorId)) {
             $query .= " AND `instructor_id` = " . $instructorId;
         }
-        
         $this->connection->conectar();
         $response = $this->connection->consulta($query);
        

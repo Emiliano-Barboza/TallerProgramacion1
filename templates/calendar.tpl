@@ -17,7 +17,7 @@
                 <dir>Contidad con libreta: {$day.data.amountWithLicense}</dir>
                 <dir>Cupos disponibles: {$day.data.amountOfBookings - $day.data.amountEnrolled}</dir>
                     {if isset($user) && !$user.is_admin && ($day.data.amountOfBookings - $day.data.amountEnrolled > 0) }
-                    <a>Reservar clase</a>
+                    <a href="booking.php?date={$day.data.date}">Reservar clase</a>
                     {/if}
                 {/if}
             </dir>
