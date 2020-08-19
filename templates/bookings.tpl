@@ -37,7 +37,7 @@
                 </div>
                 <div class="list-container-panel-footer">
                     {if empty($bookings)}
-                        <div>There are no bookings for the selected day and instructor.</div>
+                        <div>There are no bookings for the selected day.</div>
                     {/if}
                 </div>
             </div>
