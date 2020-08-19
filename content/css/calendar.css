@@ -11,11 +11,24 @@
     background-color: #f44336;
 }
 
-.day {
-    
-    flex-grow: 1;
-    margin: 0;
-    padding: 0;
+.day-container {
+  border-right: #dadce0 solid 1px;
+  width: 200px;
+  text-align: center;
+}
+
+.day-container:first-child {
+    border-left: #dadce0 solid 1px;
+}
+
+.day-info {
+    padding: 10px 5px;
+    text-align: left;
+}
+
+.day-info a {
+    float: right;
+    padding: 10px 0;
 }
 
 .day-name {
@@ -30,49 +43,25 @@
     font-size: 16px;
     height: 48px;
     line-height: 24px;
+    padding: 10px 20px 0 20px;
 }
 
 .month-navigation > span {
     margin-left: 10px;
 }
 
-.week {
-    border: #eeeeee solid 1px;
-    display: flex;
-}
-
-
-
-/* =============  Calendar End  ============= */
-
-.flex-container {
-  /* We first create a flex layout context */
+.week-container {
   display: flex;
-  flex-flow: row wrap;
-  
-  /* Then we define how is distributed the remaining space */
   border-bottom: #dadce0 solid 1px;
-  justify-content: space-around;
+  justify-content: center;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.flex-container:first-child {
+.week-container:first-child {
     border-top: #dadce0 solid 1px;
 }
 
-.flex-item {
-  border-right: #dadce0 solid 1px;
-  width: 200px;
-  height: 150px;
-  line-height: 150px;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
-}
 
-.flex-item:first-child {
-    border-left: #dadce0 solid 1px;
-}
 

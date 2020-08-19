@@ -34,6 +34,11 @@ header > div {
 
 .session-menu {
     float: right;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    letter-spacing: 2px;
+    position: relative;
 }
 
 /* =============  Menu nav  ============= */
