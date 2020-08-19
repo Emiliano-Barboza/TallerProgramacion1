@@ -2,12 +2,17 @@
 include_once '../config/configuracion.php';
 include_once("../config/config_SMARTY.php");
 include_once("../components/Calendar.php");
+require_once('../dataAccess/BookingDAO.php');
 
 $month = date("n");
 $year = date("Y");
+$bookingDAO = new BookingDAO();
+$bookings = $bookingDAO->getBookingOfMonth($month, $year);
+
 $calendar = new Calendar();
-$calendarData = $calendar->getCalendar($month, $year);
+$calendarData = $calendar->getCalendar($month, $year, $bookings);
 $cssSources = array('content/css/calendar.css');
+
 
 session_start();
 

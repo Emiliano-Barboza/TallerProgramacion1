@@ -13,11 +13,11 @@
             <dir>
                 <dir class="{if isset($day.data)}booking-{$day.data.status}{/if}">{$day.title}</dir>
                 {if isset($day.data) }
-                <dir>Contidad inscriptos: {$day.data.amountEnrolled}</dir>
-                <dir>Contidad con libreta: {$day.data.amountWithLicense}</dir>
-                <dir>Cupos disponibles: {$day.data.amountOfBookings - $day.data.amountEnrolled}</dir>
-                    {if isset($user) && !$user.is_admin && ($day.data.amountOfBookings - $day.data.amountEnrolled > 0) }
-                    <a href="booking.php?date={$day.data.date}">Reservar clase</a>
+                <dir>Contidad inscriptos: {$day.data.inscriptos}</dir>
+                <dir>Contidad con libreta: {$day.data.licencias}</dir>
+                <dir>Cupos disponibles: {$day.data.cupos - $day.data.inscriptos}</dir>
+                    {if isset($user) && !$user.is_admin && ($day.data.cupos - $day.data.inscriptos > 0) }
+                    <a href="booking.php?date={$day.data.fecha}">Reservar clase</a>
                     {/if}
                 {/if}
             </dir>

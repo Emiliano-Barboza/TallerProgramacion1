@@ -66,4 +66,22 @@ class BookingDAO {
         $this->connection->desconectar();
         return $response;
     }
+    
+    public function getBookingOfMonth($month, $year) {
+        $date = $year . '-' . $month . '-' . 1;
+        $query = "SELECT r.fecha, count(*) as inscriptos, IF(r.usuario_id IS NULL, FALSE, TRUE) as licencias "
+                . "FROM `reservas` as r "
+                . "LEFT JOIN `libretas`  as l ON (r.usuario_id = l.usuario_id) "
+                . "WHERE r.fecha BETWEEN CAST('" . $date . "' AS DATE) AND LAST_DAY('" . $date . "') "
+                . "GROUP BY r.fecha ";
+        
+        $this->connection->conectar();
+        $response = $this->connection->consulta($query);
+       
+        if($response) {
+            $response = $this->connection->restantesRegistros();
+        }
+        $this->connection->desconectar();
+        return $response;
+    }
 }
