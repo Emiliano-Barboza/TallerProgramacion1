@@ -8,7 +8,7 @@ function showLogin(){
         $smarty->assign('error', $_GET['error']);
     }   
 
-    $smarty->assign('pageTitle', 'Página de inicio');
+    $smarty->assign('pageTitle', 'Login');
     $smarty->display('login.tpl');
 }
 

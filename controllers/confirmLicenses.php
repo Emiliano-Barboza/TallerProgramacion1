@@ -16,7 +16,7 @@ function confirmLicenses () {
     }
     
     $smarty = getSmarty();
-    $smarty->assign('pageTitle', 'Confirmación de licencias');
+    $smarty->assign('pageTitle', 'Confirm Licenses');
     $smarty->assign('scriptsSource', $scriptsSource);
     $smarty->assign('users', $users);
     $smarty->display('confirmLicenses.tpl');

@@ -3,7 +3,7 @@
 <div>
     <form method="POST" action="bookings.php">
         <p>
-            Instructores: 
+            Instructors: 
             <select name="instructor_id">
             {foreach $instructors as $instructor key=index}
                <option value="{$instructor.instructor_id}">{$instructor.nombre} {$instructor.apellido}</option>
@@ -21,7 +21,7 @@
     {if isset($bookings)}
         <div class="print-wrapper">
         {if empty($bookings)}
-            <div>No hay reservas para ese día con ese instructor.</div>
+            <div>There are no bookings for the selected day and instructor.</div>
         {/if}
         {foreach $bookings as $booking key=index}
             <dir>

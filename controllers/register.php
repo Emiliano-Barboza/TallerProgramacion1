@@ -9,5 +9,5 @@ if(isset($_GET['error'])) {
     $smarty->assign('error', $_GET['error']);
 }
 
-$smarty->assign('pageTitle', 'Registro de usuario');
+$smarty->assign('pageTitle', 'Sign up');
 $smarty->display('register.tpl');

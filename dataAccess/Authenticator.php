@@ -11,7 +11,7 @@ class Authenticator {
     }
     
     public function checkLogin($user, $password)  {
-        $response = 'Usuario inválido.';
+        $response = 'Invalid user.';
         $user = $this->userDAO->getUser($user);
         
         if($user && md5($password) === $user['password']) {
@@ -23,7 +23,7 @@ class Authenticator {
                     'user_id'   => $user['usuario_id']
                 );
             } else {
-                $response = 'Usuario no confirmado.';
+                $response = 'User not confirmed.';
             }
         }
         

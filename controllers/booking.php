@@ -27,7 +27,7 @@ function getBooking($date, $smarty) {
     $smarty->assign('date', $date);
     $smarty->assign('selectedDate', $selectedDate);
     $smarty->assign('availableHours', $availableHours);
-    $smarty->assign('pageTitle', 'Reserva de clase');
+    $smarty->assign('pageTitle', 'Booking');
     $smarty->display('booking.tpl');
 }
 
@@ -53,7 +53,7 @@ function getInstructors($smarty) {
     $smarty->assign('availableHours', $availableHours);
     $smarty->assign('instructors', $instructors);
     $smarty->assign('scriptsSource', $scriptsSource);
-    $smarty->assign('pageTitle', 'Reserva de clase');
+    $smarty->assign('pageTitle', 'Booking');
     $smarty->display('booking.tpl');
 }
 

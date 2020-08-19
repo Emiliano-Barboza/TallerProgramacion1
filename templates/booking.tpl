@@ -7,7 +7,7 @@
             <input type="hidden" name="fecha" value="{$date}">
         </p>
         <p>
-            Hora disponible:
+            Available hour:
             <select name="hora">
             {foreach $availableHours as $hour key=index}
                <option value="{$hour}" {if isset($selectedHour) && $selectedHour == $hour} selected {/if}>{$hour}</option>
@@ -20,12 +20,12 @@
     </form>
     {if isset($instructors)}
         {if empty($instructors)}
-            <div>No hay licencias para confirmar en este momento.</div>
+            <div>There are no licenses to confirm by this time.</div>
         {/if}
         {foreach $instructors as $instructor key=index}
             <dir>
                 <span>{$instructor.nombre} {$instructor.apellido}</span>
-                <button id="{$instructor.instructor_id}" date="{$date}" user-id="{$user.user_id}" hour="{$selectedHour}" class="confirm">Confirmar</button>
+                <button id="{$instructor.instructor_id}" date="{$date}" user-id="{$user.user_id}" hour="{$selectedHour}" class="confirm">Confirm</button>
             </dir>
         {/foreach}
     {/if}       

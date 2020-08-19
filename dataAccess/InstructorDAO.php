@@ -10,7 +10,6 @@ class InstructorDAO {
     private $tablePublicFields = array('nombre', 'apellido', 'ci',
         'fecha_nacimiento', 'vecimiento');
     
-    
     public function __construct() {
         $this->connection = new ConexionBD(ENGINE, SERVER_ADDRESS, DB_NAME, DB_USER, DB_USER_PASSWORD);
     }
@@ -23,8 +22,10 @@ class InstructorDAO {
         if(isset($hour)) {
             $extraQuery =  " AND `hora` = " . $hour;
         }
-        $query = "SELECT * FROM " . $this->table . " as i WHERE i.instructor_id NOT IN (SELECT `instructor_id` FROM " . 
-                $this->bookingTable . " WHERE `fecha` = " . $date . $extraQuery . ")";
+        $query = "SELECT * "
+                . "FROM " . $this->table . " as i "
+                . "WHERE i.instructor_id NOT IN "
+                . "(SELECT `instructor_id` FROM " . $this->bookingTable . " WHERE `fecha` = " . $date . $extraQuery . ")";
         
         $this->connection->conectar();
         $response = $this->connection->consulta($query);
@@ -37,7 +38,9 @@ class InstructorDAO {
     }
     
     public function getInstructor($id) {
-        $query = "SELECT * FROM " . $this->table . " WHERE `instructor_id` = " . $id;
+        $query = "SELECT * "
+                . "FROM " . $this->table . " "
+                . "WHERE `instructor_id` = " . $id;
         
         $this->connection->conectar();
         $response = $this->connection->consulta($query);

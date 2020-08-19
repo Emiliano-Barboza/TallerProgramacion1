@@ -31,7 +31,7 @@ if(isset($_SESSION['user'])){
     $smarty->assign('user', $user);
 }
 
-$smarty->assign('pageTitle', 'Pagina principal');
+$smarty->assign('pageTitle', 'Dashboard');
 $smarty->assign('cssSources', array_merge($cssSources, $smarty->getTemplateVars('cssSources')));
 $smarty->assign('scriptsSource', $scriptsSource);
 $smarty->assign('calendar', $calendarData);

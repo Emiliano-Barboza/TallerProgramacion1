@@ -8,7 +8,7 @@ function confirmClients () {
     $scriptsSource = array('content/js/confirmClient.js');
     
     $smarty = getSmarty();
-    $smarty->assign('pageTitle', 'Confirmación de clientes');
+    $smarty->assign('pageTitle', 'Confirm clients');
     $smarty->assign('scriptsSource', $scriptsSource);
     $smarty->assign('users', $users);
     $smarty->display('confirmClients.tpl');

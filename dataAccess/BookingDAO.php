@@ -34,7 +34,11 @@ class BookingDAO {
     }
     
     public function getLicensesToConfirm() {
-        $query = "SELECT `usuario_id` FROM " . $this->table . " WHERE `usuario_id` NOT IN (SELECT `usuario_id` FROM `libretas`) Group by `usuario_id` having count(*) > " . MIN_BOOKINGS_TO_ALLOW_LICENSE;
+        $query = "SELECT `usuario_id` "
+                . "FROM " . $this->table . " "
+                . "WHERE `usuario_id` NOT IN "
+                . "(SELECT `usuario_id` FROM `libretas`) "
+                . "Group by `usuario_id` having count(*) > " . MIN_BOOKINGS_TO_ALLOW_LICENSE;
         $this->connection->conectar();
         $response = $this->connection->consulta($query);
        
@@ -50,9 +54,10 @@ class BookingDAO {
             $date = date("Y-m-d");
         }
         
-        $query = "SELECT `nombre`, `apellido`, `direccion`, `hora`  FROM " . $this->table . 
-                " as r, " . $this->userTable . " as u WHERE r.usuario_id = u.usuario_id && `fecha` = '" . 
-                $date . "' ORDER BY `hora`, `nombre`, `direccion`" ;
+        $query = "SELECT `nombre`, `apellido`, `direccion`, `hora`  "
+                . "FROM " . $this->table . " as r, " . $this->userTable . " as u "
+                . "WHERE r.usuario_id = u.usuario_id && `fecha` = '" . $date . "' "
+                . "ORDER BY `hora`, `nombre`, `direccion`" ;
         
         if(isset($instructorId)) {
             $query .= " AND `instructor_id` = " . $instructorId;

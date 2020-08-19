@@ -14,7 +14,9 @@ class UserDAO {
     }
     
     public function confirmClient($id) {
-        $query = "UPDATE " . $this->table . " SET usuario_tipo_id = " . CLIENT_USER . " WHERE usuario_id = " . $id . ";";
+        $query = "UPDATE " . $this->table . " "
+                . "SET usuario_tipo_id = " . CLIENT_USER . " "
+                . "WHERE usuario_id = " . $id . ";";
         $this->connection->conectar();
         $response = $this->connection->consulta($query);
        
@@ -26,7 +28,9 @@ class UserDAO {
     }
     
     public function getUnconfirmedUsers() {
-        $query = "SELECT * FROM " . $this->table . " WHERE `usuario_tipo_id` =" . UNCONFIRMED_USER . " LIMIT 0 , 30";
+        $query = "SELECT * "
+                . "FROM " . $this->table . " "
+                . "WHERE `usuario_tipo_id` =" . UNCONFIRMED_USER . " LIMIT 0 , 30";
         
         $this->connection->conectar();
         $response = $this->connection->consulta($query);
@@ -38,7 +42,9 @@ class UserDAO {
     }
     
     public function getUser($email) {
-        $query = "SELECT * FROM " . $this->table . " WHERE `email` LIKE '%" . $email . "%' LIMIT 0 , 30";
+        $query = "SELECT * "
+                . "FROM " . $this->table . " "
+                . "WHERE `email` LIKE '%" . $email . "%' LIMIT 0 , 30";
         
         $this->connection->conectar();
         $response = $this->connection->consulta($query);
@@ -50,7 +56,9 @@ class UserDAO {
     }
     
     public function getUsers($users) {
-        $query = "SELECT * FROM " . $this->table . " WHERE `usuario_id` IN (" . implode(", ", $users) . ") LIMIT 0 , 30";
+        $query = "SELECT * "
+                . "FROM " . $this->table . " "
+                . "WHERE `usuario_id` IN (" . implode(", ", $users) . ") LIMIT 0 , 30";
         
         $this->connection->conectar();
         $response = $this->connection->consulta($query);
@@ -85,7 +93,7 @@ class UserDAO {
             
             $this->connection->desconectar();
         } else {
-            $response = 'El usuario ya existe.';
+            $response = 'User already exists.';
         }
         return $response;
     }

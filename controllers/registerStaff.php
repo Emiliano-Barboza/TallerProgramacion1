@@ -9,7 +9,7 @@ function registerStaff() {
         $smarty->assign('error', $_GET['error']);
     }
 
-    $smarty->assign('pageTitle', 'Registro de instructor');
+    $smarty->assign('pageTitle', 'Regist instructor');
     $smarty->display('registerStaff.tpl');
 }
 

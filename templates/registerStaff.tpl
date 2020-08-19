@@ -4,24 +4,24 @@
 <div>
     <form method="POST" action="registerInstructor.php">
         <p>
-            Nombre: <input type="text" name="nombre">
+            Name: <input type="text" name="nombre">
         </p>
         <p>
-            Apellido: <input type="text" name="apellido">
+            Lastname: <input type="text" name="apellido">
         </p>
         <p>
-            C.I.: <input type="text" name="ci">
+            Identification: <input type="text" name="ci">
         </p>
         <p>
-            Fecha nacimiento: <input type="date" id="start" name="fecha_nacimiento" value="2000-08-20"
+            Born date: <input type="date" id="start" name="fecha_nacimiento" value="2000-08-20"
             accept="" max="2000-08-20">
         </p>
         <p>
-            Vencimiento licencia: <input type="date" id="start" name="vencimiento" value="2010-08-20"
+            License expiration date: <input type="date" id="start" name="vencimiento" value="2010-08-20"
             accept="" min="2010-08-20">
         </p>
         <p>
-            <input type="submit" value="Registrar">
+            <input type="submit" value="Regist">
         </p>
         {if isset($error) }
         <p><b>{$error}</b></p>   
