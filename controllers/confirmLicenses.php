@@ -11,7 +11,8 @@ function confirmLicenses () {
     
     if (is_array($licenses)) {
         $userDAO = new UserDAO();
-        $users = $userDAO->getUsers(array_values($licenses));
+        $licenseUsers = array_shift($licenses);
+        $users = $userDAO->getUsers(array_values($licenseUsers));
     }
     
     $smarty = getSmarty();
