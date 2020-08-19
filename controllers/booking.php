@@ -19,10 +19,8 @@ function getAvailableHours($date){
     return array_diff($workingHours, $bookedHours);
 }
 
-function getBooking($date) {
+function getBooking($date, $smarty) {
     $bookings = null;
-    $smarty = getSmarty();
-    
     $selectedDate = getFullDate($date);
     $availableHours = getAvailableHours($date);
     
@@ -33,9 +31,8 @@ function getBooking($date) {
     $smarty->display('booking.tpl');
 }
 
-function getInstructors() {
+function getInstructors($smarty) {
     $bookings = null;
-    $smarty = getSmarty();
     $data = filter_input_array(INPUT_POST, [
         "fecha" => FILTER_SANITIZE_STRING,
         "hora"  => FILTER_SANITIZE_NUMBER_INT
@@ -64,10 +61,12 @@ session_start();
 
 
 if(isset($_SESSION['user']) && !$_SESSION['user']['is_admin']){
+    $smarty = getSmarty();
+    
     if (isset($_GET['date'])){
-        getBooking($_GET['date']);
+        getBooking($_GET['date'], $smarty);
     } else {
-        getInstructors();
+        getInstructors($smarty);
     }
 } else {
     header('location:./index.php');

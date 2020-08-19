@@ -1,4 +1,3 @@
-{* Smarty *}
-    </body>
-
-</html>
+    </main>
+</div>
+{include file="rootPageEnd.tpl"}

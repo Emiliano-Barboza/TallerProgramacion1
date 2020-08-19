@@ -1,26 +1,31 @@
 {* Smarty *}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{include file="rootPageBegin.tpl"}
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-    <head>
-        <title>{$pageTitle}</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {if isset($scriptsSource) }
-            {foreach $scriptsSource as $source}
-                <script src="{$source}" type="module"></script> 
-            {/foreach}
-        {/if}
-        {if isset($cssSources) }
-            {foreach $cssSources as $source}
-                <link href="{$source}" rel="stylesheet" type="text/css"/>
-            {/foreach}
-        {/if}   
-    </head>
-	
-    <body>
-        
-
-
-
+<div>
+    <header>
+        <div>
+            <a href="/driverAcademy/index.php" class="logo">Drivers academy</a>
+            {if isset($user) }
+            <nav>
+                <ul class="nav">
+                  <li>
+                      <a href="#">{$user.full_name}</a>
+                      <ul class="sub-menu">
+                        {if $user.is_admin }
+                        <li><a href="registerStaff.php">Add instructor</a></li>
+                        <li><a href="confirmClients.php">Approve clients</a></li>
+                        <li><a href="confirmLicenses.php">Confirma licenses</a></li>
+                        <li><a href="bookings.php">Intructors</a></li>
+                        {/if}
+                        <li><a href="/driverAcademy/logout.php">Logout</a></li>
+                      </ul>
+                  </li>
+                </ul>
+            </nav>
+            {else}
+                <a href="/driverAcademy/login.php" class="session-menu">Login</a>
+            {/if}
+            
+        </div>
+    </header>
+    <main>

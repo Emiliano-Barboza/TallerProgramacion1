@@ -41,12 +41,10 @@ class Calendar {
         $monthName = date('F', mktime(0, 0, 0, $month, 10));
         $firstDayOfWeek = date("l", strtotime("first day of " . $monthName));
         $firstDayOfWeekNumber = $this->getDayOfWeekNumber($firstDayOfWeek);
-        var_dump($firstDayOfWeekNumber);
         $totalCurrentMonthDays = cal_days_in_month(CAL_GREGORIAN, $month, $year);
         $totalPreviousMonthDays = cal_days_in_month(CAL_GREGORIAN, $month - 1, $year); //TODO Check borders
 
         $daysSettings['dayNumber'] = $totalPreviousMonthDays - $firstDayOfWeekNumber + 1; // This will be same total month days if day starts on Monday
-        var_dump($daysSettings['dayNumber']);
         $daysSettings['maxDay'] = 0;
 
         if($daysSettings['dayNumber'] > $totalPreviousMonthDays){

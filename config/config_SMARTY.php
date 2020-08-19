@@ -13,6 +13,15 @@ function getSmarty() {
     $smarty->config_dir = CONFIG_DIR;
     $smarty->cache_dir = CACHE_DIR;
     
+    $cssSources = array('content/css/main.css');
+    $smarty->assign('cssSources', $cssSources);
+    
+    if (isset($_SESSION['user'])){
+        $user = $_SESSION['user'];
+        $smarty->assign('user', $user);
+    }
+    
+    
     return $smarty;
 }
 

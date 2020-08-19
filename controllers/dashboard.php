@@ -32,7 +32,7 @@ if(isset($_SESSION['user'])){
 }
 
 $smarty->assign('pageTitle', 'Pagina principal');
-$smarty->assign('cssSources', $cssSources);
+$smarty->assign('cssSources', array_merge($cssSources, $smarty->getTemplateVars('cssSources')));
 $smarty->assign('scriptsSource', $scriptsSource);
 $smarty->assign('calendar', $calendarData);
 $smarty->display('dashboard.tpl');

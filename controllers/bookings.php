@@ -23,7 +23,7 @@ function getBookings() {
     }
 
     $smarty->assign('instructors', $instructors);
-    $smarty->assign('cssSources', $cssSources);
+    $smarty->assign('cssSources', array_merge($cssSources, $smarty->getTemplateVars('cssSources')));
     $smarty->assign('pageTitle', 'Listado de clases');
     $smarty->display('bookings.tpl');
 }
