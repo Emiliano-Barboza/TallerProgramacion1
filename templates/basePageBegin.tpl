@@ -12,7 +12,11 @@
                 <script src="{$source}" type="module"></script> 
             {/foreach}
         {/if}
-           
+        {if isset($cssSources) }
+            {foreach $cssSources as $source}
+                <link href="{$source}" rel="stylesheet" type="text/css"/>
+            {/foreach}
+        {/if}   
     </head>
 	
     <body>

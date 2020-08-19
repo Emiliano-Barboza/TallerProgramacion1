@@ -7,6 +7,7 @@ $month = date("n");
 $year = date("Y");
 $calendar = new Calendar();
 $calendarData = $calendar->getCalendar($month, $year);
+$cssSources = array('content/css/calendar.css');
 
 session_start();
 
@@ -18,5 +19,6 @@ if(isset($_SESSION['user'])){
 }
 
 $smarty->assign('pageTitle', 'Pagina principal');
+$smarty->assign('cssSources', $cssSources);
 $smarty->assign('calendar', $calendarData);
 $smarty->display('dashboard.tpl');

@@ -10,7 +10,7 @@
                   <li>
                       <a href="#">{$user.full_name}</a>
                       <ul class="sub-menu">
-                        {if isset($user.is_admin) }
+                        {if $user.is_admin }
                         <li><a href="registerStaff.php">Alta instructor</a></li>
                         <li><a href="confirmClients.php">Aprobación clientes</a></li>
                         <li><a href="confirmLicenses.php">Confirmación libretas</a></li>

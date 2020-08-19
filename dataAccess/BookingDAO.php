@@ -6,6 +6,7 @@ include_once('../utils/dbUtils.php');
 class BookingDAO {
     private $connection = null;
     private $table = 'reservas';
+    private $userTable = 'usuarios';
     private $tablePublicFields = array('email', 'password', 'nombre', 'apellido',
         'ci', 'fecha_nacimiento', 'direccion', 'usuario_tipo_id');
     
@@ -19,7 +20,30 @@ class BookingDAO {
         $response = $this->connection->consulta($query);
        
         if($response) {
-            $response = $this->connection->siguienteRegistro();
+            $response = $this->connection->restantesRegistros();
+        }
+        $this->connection->desconectar();
+        return $response;
+    }
+    
+    public function getBookings($date = null, $instructorId = null) {
+        if(!isset($date)) {
+            $date = date("Y-m-d");
+        }
+        
+        $query = "SELECT `nombre`, `apellido`, `direccion`, `hora`  FROM " . $this->table . 
+                " as r, " . $this->userTable . " as u WHERE r.usuario_id = u.usuario_id && `fecha` = '" . 
+                $date . "' ORDER BY `hora`, `nombre`, `direccion`" ;
+        
+        if(!isset($instructorId)) {
+            $query .= " AND `instructor_id` = " . $instructorId;
+        }
+        
+        $this->connection->conectar();
+        $response = $this->connection->consulta($query);
+       
+        if($response) {
+            $response = $this->connection->restantesRegistros();
         }
         $this->connection->desconectar();
         return $response;

@@ -1,5 +1,4 @@
 {* Smarty *}
-<link href="content/css/calendar.css" rel="stylesheet" type="text/css"/>
 
 <dir class="calendar">
     <div class="month-navigation">
@@ -17,7 +16,7 @@
                 <dir>Contidad inscriptos: {$day.data.amountEnrolled}</dir>
                 <dir>Contidad con libreta: {$day.data.amountWithLicense}</dir>
                 <dir>Cupos disponibles: {$day.data.amountOfBookings - $day.data.amountEnrolled}</dir>
-                    {if isset($user) && ($day.data.amountOfBookings - $day.data.amountEnrolled > 0) }
+                    {if isset($user) && !$user.is_admin && ($day.data.amountOfBookings - $day.data.amountEnrolled > 0) }
                     <a>Reservar clase</a>
                     {/if}
                 {/if}

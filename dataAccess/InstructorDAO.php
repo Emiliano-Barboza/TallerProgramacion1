@@ -26,6 +26,18 @@ class InstructorDAO {
         return $response;
     }
     
+    public function getInstructors() {
+        $query = "SELECT * FROM " . $this->table . " LIMIT 0 , 30";
+        
+        $this->connection->conectar();
+        $response = $this->connection->consulta($query);
+        if($response) {
+            $response = $this->connection->restantesRegistros();
+        }
+        $this->connection->desconectar();
+        return $response;
+    }
+    
     public function registerInstructor($data) {
         sort($this->tablePublicFields);
         ksort($data);

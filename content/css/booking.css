@@ -1,0 +1,12 @@
+@media print {
+    body * {
+        visibility: hidden;
+        -webkit-print-color-adjust: exact !important;
+    }
+
+    .print-wrapper * {
+        visibility: visible;
+        text-align: left;
+        -webkit-print-color-adjust: exact !important;
+    }
+}
