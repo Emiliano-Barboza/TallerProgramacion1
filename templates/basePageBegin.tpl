@@ -5,7 +5,7 @@
     <header>
         <div>
             <a href="/driverAcademy/index.php" class="logo">
-                <img src="content/icons/driving-school.svg" class="filter-green"/>
+                <img src="content/icons/driving-school.svg"/>
                 <div>Drivers academy</div>
             </a>
             {if isset($user) }

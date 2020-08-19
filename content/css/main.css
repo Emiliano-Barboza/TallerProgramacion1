@@ -16,6 +16,24 @@ header > div {
     padding: 0 20px;
 }
 
+.list-container {
+    text-align: left;
+    padding: 50px 0;
+}
+
+.list-container-panel-header {
+    font-size: 24px;
+}
+
+.list-container-panel {
+    padding: 30px 0;
+}
+.list-container-panel .inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
 .logo {
     color: #fff;
     text-decoration: none;
@@ -93,10 +111,6 @@ header > div {
 
 .form-container-panel input[type="submit"] {
     width: 82%;
-}
-
-.form-container-panel-footer {
-    
 }
   
 }
