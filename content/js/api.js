@@ -1,7 +1,22 @@
 
 function get(url) {
     return new Promise(function(resolve, reject) {
-      
+        var request = new XMLHttpRequest();
+        request.addEventListener( "load", function(event) {
+            if(event.currentTarget.status == 200) {
+                resolve(event.currentTarget.responseText);
+            } else {
+                reject(event.currentTarget.statusText);
+            }
+          });
+
+        request.addEventListener( "error", function( event ) {
+            reject(event);
+        });
+
+        request.open( "GET", url);
+        
+        request.send();
     });
 }
 

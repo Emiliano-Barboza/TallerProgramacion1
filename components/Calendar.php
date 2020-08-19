@@ -5,7 +5,7 @@ class Calendar {
     private $daysOfWeek = array('Monday', 'Tuesday', 'Wednesdy', 'Thursday', 'Friday', 'Saturday', 'Sunday');
     private $month = 1;
     private $year = 2020;
-    private $amountOfWeeks = 6;
+    private $amountOfWeeks = 7;
     private $amountWeekDays = 7;
     
     public function __construct() {
@@ -38,15 +38,18 @@ class Calendar {
             'dayNumber' => 1,
             'maxDay'    => 0
         );
-        $firstDayOfWeek = date("l", strtotime("first day of this month"));
+        $monthName = date('F', mktime(0, 0, 0, $month, 10));
+        $firstDayOfWeek = date("l", strtotime("first day of " . $monthName));
         $firstDayOfWeekNumber = $this->getDayOfWeekNumber($firstDayOfWeek);
+        var_dump($firstDayOfWeekNumber);
         $totalCurrentMonthDays = cal_days_in_month(CAL_GREGORIAN, $month, $year);
         $totalPreviousMonthDays = cal_days_in_month(CAL_GREGORIAN, $month - 1, $year); //TODO Check borders
 
         $daysSettings['dayNumber'] = $totalPreviousMonthDays - $firstDayOfWeekNumber + 1; // This will be same total month days if day starts on Monday
+        var_dump($daysSettings['dayNumber']);
         $daysSettings['maxDay'] = 0;
 
-        if($daysSettings['dayNumber'] == $totalPreviousMonthDays){
+        if($daysSettings['dayNumber'] > $totalPreviousMonthDays){
             $daysSettings['maxDay'] = $totalCurrentMonthDays;
             $daysSettings['dayNumber'] = 1;
         } else{
@@ -93,8 +96,6 @@ class Calendar {
                     $bookingDate['costo'] = (BOOKING_COST * $weekNumber) - $day; // Fake different costs per week
                 }
                 
-                
-                
                 $week[] = $this->convertToDayCell($daysSettings['dayNumber'], $bookingDate);
                 $daysSettings['dayNumber']++;
                 if ($daysSettings['dayNumber'] > $daysSettings['maxDay']) {
@@ -109,12 +110,16 @@ class Calendar {
     
     public function getCalendar($month = 1, $year = 2020, $dataSource){
         $weeks = $this->getCalendarWeeks($month, $year, $dataSource);
+        $nextMonth = $month + 1;
+        $previousMonth = $month - 1;
         $calendar = array(
-            'currentMonth'  => date("F", mktime(0, 0, 0, $month, 10)),
-            'previousMonth' => date("F", mktime(0, 0, 0, $month - 1, 10)),
-            'nextMonth'     => date("F", mktime(0, 0, 0, $month + 1, 10)),
-            'currentYear'   => $year, 
-            'weeks'         => $weeks
+            'currentMonthText'  => date("F", mktime(0, 0, 0, $month, 10)),
+            'previousMonthText' => date("F", mktime(0, 0, 0, $previousMonth, 10)),
+            'nextMonthText'     => date("F", mktime(0, 0, 0, $nextMonth, 10)),
+            'nextMonth'         => $nextMonth, 
+            'previousMonth'     => $previousMonth, 
+            'currentYear'       => $year, 
+            'weeks'             => $weeks
         );
         return $calendar;
     }

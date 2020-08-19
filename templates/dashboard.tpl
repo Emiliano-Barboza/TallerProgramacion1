@@ -1,6 +1,6 @@
 {* Smarty *}
 {include file="basePageBegin.tpl"}
-<div>
+<div class="dashboard">
     <header>
         <div>
             <a href="/driverAcademy/index.php" class="logo">Academia de choferes</a>
@@ -27,10 +27,8 @@
             
         </div>
     </header>
-    <nav>TODO CREATE NAVBAR</nav>
     <main>
         {include file="calendar.tpl"}
-
     </main>
 </div>
 
