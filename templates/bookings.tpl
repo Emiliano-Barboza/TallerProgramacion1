@@ -47,15 +47,4 @@
     </div>
 {include file="wrapperContainerEnd.tpl"}
 
-
-
-
-
-
-
-<div>
-    
-    
-           
-</div>
-
+{include file="basePageEnd.tpl"}
